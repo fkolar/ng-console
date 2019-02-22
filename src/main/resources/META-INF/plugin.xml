@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>io.nrwl.ide.console</id>
+    <name>Angular UI Console</name>
+    <version>1.0</version>
+    <vendor email="frantisek@kolar.pro" url="http://www.nrwl.io/">Hoop</vendor>
+    <description>Angular UI Console based implementation for Webstorm IDE</description>
+
+    <depends>JavaScript</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

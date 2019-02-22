@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="JavaScriptLang">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/semver4j-2.2.0.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/javascript-openapi.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/js-test-common.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

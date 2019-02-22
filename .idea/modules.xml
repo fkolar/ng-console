@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/console.iml" filepath="$PROJECT_DIR$/.idea/modules/console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/console_main.iml" filepath="$PROJECT_DIR$/.idea/modules/console_main.iml" group="console" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/console_test.iml" filepath="$PROJECT_DIR$/.idea/modules/console_test.iml" group="console" />
+    </modules>
+  </component>
+</project>
