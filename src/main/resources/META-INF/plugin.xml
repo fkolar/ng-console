@@ -10,9 +10,26 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Angular Console"
+                    icon="/icons/app-icon.png"
+                    anchor="right"
+                    factoryClass="io.nrwl.ide.console.ui.NgConsoleWindowFactory"/>
 
+        <projectService serviceInterface="io.nrwl.ide.console.ui.state.NgConsoleState"
+                        serviceImplementation="io.nrwl.ide.console.ui.state.NgConsoleState"/>
     </extensions>
 
+    <application-components>
+        <component>
+            <implementation-class>io.nrwl.ide.console.AngularConsoleApp</implementation-class>
+        </component>
+    </application-components>
+
+    <project-components>
+        <component>
+            <implementation-class>io.nrwl.ide.console.AngularConsoleProject</implementation-class>
+        </component>
+    </project-components>
 
 
     <actions>

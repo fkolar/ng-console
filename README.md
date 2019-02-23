@@ -97,9 +97,9 @@ I broke down the things which needs to be done into these specific tasks (areas)
 
 
 - ✅ Basic plugin as **placeholder** for future code extensions + README.md
-    - ❌ _Application Component_ with two entry methods (run when IDE startup and when exiting)
-    - ❌ _Project Component_ with two entry methods (run when project is opened and when closed)
-    - ❌ _ToolWindow_ with JavaFX functionality that can render a web page inside Swing App (e.g. http://www.google.com)
+    - ✅ _Application Component_ with two entry methods (run when IDE startup and when exiting)
+    - ✅ _Project Component_ with two entry methods (run when project is opened and when closed)
+    - ✅ _ToolWindow_ with JavaFX functionality that can render a web page inside Swing App (e.g. http://www.google.com)
     - ❌ _ToolWindow_ implement probably different tabs for different types of commands (tasks, generate, etc..)
 - ❌ _DirectoryProjectGenerator_ that shows a web page using javaFX in the New Project Wizard
     * Probably will have to create new Application type.
