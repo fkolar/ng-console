@@ -1,12 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+
+    }
+
+    dependencies {
+        classpath "gradle.plugin.org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.4.4"
+    }
+}
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.4.2'
+    id "org.jetbrains.intellij" version "0.4.4"
 }
+
+
+
+apply plugin: 'org.jetbrains.intellij'
 
 group 'io.nrwl.ide'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+
+intellij {
+    version 'IU-2018.3.5'
+    pluginName 'Angular Console'
+    downloadSources false
+    updateSinceUntilBuild false
+    plugins = ['JavaScriptLanguage']
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
 
 repositories {
     mavenCentral()
@@ -14,14 +42,4 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-intellij {
-    version '2018.2.7'
-    updateSinceUntilBuild false
-}
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
 }

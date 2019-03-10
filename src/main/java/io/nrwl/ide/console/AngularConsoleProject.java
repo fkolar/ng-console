@@ -9,7 +9,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 import static com.intellij.notification.NotificationType.INFORMATION;
-import static io.nrwl.ide.console.ui.NgIcons.TOOL_WINDOW;
+import static icons.NgIcons.TOOL_WINDOW;
 
 public class AngularConsoleProject implements ProjectComponent {
     private Project project;

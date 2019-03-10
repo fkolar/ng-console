@@ -7,11 +7,10 @@ import com.intellij.openapi.components.ServiceManager;
 import io.nrwl.ide.console.ui.NgConsoleUI;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-
 import static com.intellij.notification.NotificationType.INFORMATION;
-import static io.nrwl.ide.console.ui.NgIcons.TOOL_WINDOW;
+import static icons.NgIcons.TOOL_WINDOW;
 
+@SuppressWarnings({"deprecation"})
 public class AngularConsolePlugin implements ApplicationComponent {
 
 
