@@ -1,12 +1,18 @@
 package io.nrwl.ide.console.ui.wizard;
 
+import com.intellij.ide.util.projectWizard.AbstractNewProjectStep;
+import com.intellij.ide.util.projectWizard.CustomStepProjectGenerator;
 import com.intellij.ide.util.projectWizard.ModuleBuilder;
 import com.intellij.ide.util.projectWizard.WebProjectTemplate;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.wm.impl.welcomeScreen.AbstractActionWithPanel;
+import com.intellij.platform.DirectoryProjectGenerator;
 import icons.NgIcons;
 import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -17,7 +23,11 @@ import javax.swing.*;
  * custom environment, provides necessary Title which in the wizard menu and icon
  */
 @SuppressWarnings("deprecation")
-public class NgConsoleProjectGenerator extends WebProjectTemplate<Object> {
+public class NgConsoleProjectGenerator extends WebProjectTemplate<Object>
+        implements CustomStepProjectGenerator<Object> {
+
+    @NonNls
+    private static final Logger LOG = Logger.getInstance(NgConsoleProjectGenerator.class);
 
     @Nls
     @NotNull
@@ -38,9 +48,17 @@ public class NgConsoleProjectGenerator extends WebProjectTemplate<Object> {
     }
 
 
+    @Override
+    public AbstractActionWithPanel createStep(DirectoryProjectGenerator<Object> projectGenerator,
+                                              AbstractNewProjectStep.AbstractCallback<Object> callback) {
+
+        return new NgConsoleSettingsStep(projectGenerator, callback);
+    }
+
     @NotNull
     @Override
     public ModuleBuilder createModuleBuilder() {
+        LOG.info("createModuleBuilder....");
         return new NgConsoleCreateProjectModuleBuilder(this);
     }
 

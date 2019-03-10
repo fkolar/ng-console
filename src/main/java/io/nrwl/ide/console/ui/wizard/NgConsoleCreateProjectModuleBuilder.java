@@ -4,6 +4,7 @@ import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.SettingsStep;
 import com.intellij.ide.util.projectWizard.WebProjectTemplate;
 import com.intellij.ide.util.projectWizard.WizardContext;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.ModuleType;
 import com.intellij.openapi.module.WebModuleBuilder;
 import com.intellij.openapi.module.WebModuleType;
@@ -11,6 +12,7 @@ import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.platform.ProjectGeneratorPeer;
 import icons.NgIcons;
 import io.nrwl.ide.console.ui.NgConsoleUtil;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,6 +23,9 @@ import javax.swing.*;
  * Creates new NGConsole module environment
  */
 public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Object> {
+
+    @NonNls
+    private static final Logger LOG = Logger.getInstance(NgConsoleCreateProjectModuleBuilder.class);
     private NgConsoleCreateProjectStep myCreateStep;
 
 
@@ -33,6 +38,8 @@ public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Object
     public ModuleWizardStep[] createFinishingSteps(@NotNull WizardContext wizardContext,
                                                    @NotNull ModulesProvider modulesProvider) {
         myCreateStep = new NgConsoleCreateProjectStep(wizardContext.getWizard(), this);
+
+        LOG.info("Creating new finishing step: " + myCreateStep);
         return new ModuleWizardStep[]{myCreateStep};
     }
 
@@ -49,6 +56,8 @@ public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Object
 
         WizardContext context = settingsStep.getContext();
         context.getWizard().updateButtons(false, true, true);
+
+        LOG.info("modifySettingsStep step: " + myCreateStep);
 
         // make sure its finish button is visible again
         JButton nextButton = NgConsoleUtil.getNextButton(context.getWizard());

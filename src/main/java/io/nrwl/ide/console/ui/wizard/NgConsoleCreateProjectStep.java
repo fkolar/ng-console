@@ -3,8 +3,10 @@ package io.nrwl.ide.console.ui.wizard;
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.wizard.AbstractWizard;
 import com.intellij.openapi.components.ServiceManager;
+import com.intellij.openapi.diagnostic.Logger;
 import io.nrwl.ide.console.ui.NgConsoleUI;
 import io.nrwl.ide.console.ui.NgConsoleUtil;
+import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +20,8 @@ import java.awt.*;
  * programmatically invoke the wizard's Finish button that open up just created project.
  */
 public class NgConsoleCreateProjectStep extends ModuleWizardStep {
+    @NonNls
+    private static final Logger LOG = Logger.getInstance(NgConsoleCreateProjectModuleBuilder.class);
 
     private AbstractWizard myWizard;
     private NgConsoleCreateProjectModuleBuilder myModuleBuilder;
@@ -27,6 +31,7 @@ public class NgConsoleCreateProjectStep extends ModuleWizardStep {
         myMainPanel = new JPanel(new BorderLayout());
         NgConsoleUI consoleUI = ServiceManager.getService(NgConsoleUI.class);
 
+        LOG.info("NgConsoleCreateProjectStep:...... ");
 
         // just a test so we can programmatically create project out of the path and open it.
         JButton finishButton = new JButton("CLICK ME TO FINISH");
@@ -49,6 +54,7 @@ public class NgConsoleCreateProjectStep extends ModuleWizardStep {
     @Override
     public void updateDataModel() {
         System.out.println("myWizard = " + myWizard);
+        LOG.info("NgConsoleCreateProjectStep:...... ");
 
     }
 
@@ -57,6 +63,7 @@ public class NgConsoleCreateProjectStep extends ModuleWizardStep {
     public void _init() {
         super._init();
 
+        LOG.info("_init:...... ");
         // We need to use this little hack to hide the finish button
         JButton nextButton = NgConsoleUtil.getNextButton(myWizard);
         if (nextButton != null) {
