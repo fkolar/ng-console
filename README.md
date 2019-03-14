@@ -133,6 +133,24 @@ process inside `ApplicationComponent`
 
 
  ![Current Progress](./docs/ng-console.gif)
+ 
+ 
+ 
+ 
+**Updated svg icons**
+
+ ![Current Progress](./docs/tools-icons.png)
+
+
+**Wizard**
+
+ ![Current Progress](./docs/wizard-1.png)
+ =
+ ![Current Progress](./docs/wizard-2.png)
+ -
+ ![Current Progress](./docs/wizard-3.png)
+
+ 
 
 This is the basic functionality to start with. Besides all this we will probably need some icons  
 for regular and retina display also for  Dark and Light theme. 
