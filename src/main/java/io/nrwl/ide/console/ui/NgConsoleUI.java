@@ -15,9 +15,9 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 /**
- * Main panel used to render the NG Console UI. It uses JavaFX which has a FX WebView to work with  HTML content.
- * Since it takes some time to initialize FX view and to fetch web content as well as to make sure that only once
- * instance exists across the IDE the <code>NgConsoleUI</code> is created as an Application service.
+ * Main JPanel used for rendering the NGConsoleUI (the WebView). It uses JavaFX which has a FX WebView to work
+ * with  HTML content. Since it takes some time to initialize FX view and to fetch web content as well as to make sure
+ * that only once instance exists across the IDE the <code>NgConsoleUI</code> is created as an Application service.
  */
 public class NgConsoleUI {
     /**

@@ -4,6 +4,7 @@ import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.SettingsStep;
 import com.intellij.ide.util.projectWizard.WebProjectTemplate;
 import com.intellij.ide.util.projectWizard.WizardContext;
+import com.intellij.lang.javascript.boilerplate.NpmPackageProjectGenerator.Settings;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.ModuleType;
 import com.intellij.openapi.module.WebModuleBuilder;
@@ -22,14 +23,14 @@ import javax.swing.*;
 /**
  * Creates new NGConsole module environment
  */
-public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Object> {
+public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Settings> {
 
     @NonNls
     private static final Logger LOG = Logger.getInstance(NgConsoleCreateProjectModuleBuilder.class);
     private NgConsoleCreateProjectStep myCreateStep;
 
 
-    public NgConsoleCreateProjectModuleBuilder(@NotNull WebProjectTemplate<Object> template) {
+    public NgConsoleCreateProjectModuleBuilder(@NotNull WebProjectTemplate<Settings> template) {
         super(template);
     }
 
@@ -51,13 +52,11 @@ public class NgConsoleCreateProjectModuleBuilder extends WebModuleBuilder<Object
     @Nullable
     @Override
     public ModuleWizardStep modifySettingsStep(@NotNull SettingsStep settingsStep) {
-        ProjectGeneratorPeer<Object> peer = myGeneratorPeerLazyValue.getValue();
+        ProjectGeneratorPeer<Settings> peer = myGeneratorPeerLazyValue.getValue();
         peer.buildUI(settingsStep);
 
         WizardContext context = settingsStep.getContext();
         context.getWizard().updateButtons(false, true, true);
-
-        LOG.info("modifySettingsStep step: " + myCreateStep);
 
         // make sure its finish button is visible again
         JButton nextButton = NgConsoleUtil.getNextButton(context.getWizard());

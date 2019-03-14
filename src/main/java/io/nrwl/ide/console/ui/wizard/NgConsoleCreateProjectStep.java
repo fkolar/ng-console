@@ -12,9 +12,9 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Final step of the wizard that renders a web component ( NGConsole app. ). Default behavior is always to show
- * Next/Finish button in the last step which in this case is little bit confusing when NGConsole client has its own
- * create button.
+ * Final step of the wizard  (Mainly used by IDEA) that renders a web content. Default behavior is always to show
+ * Next/Finish button in the last step which in this case is little bit confusing when Angular Console client has its
+ * own Create button.
  * <p>
  * Therefore the plan is to rely on the NGConsole Create button which generates the directory structure and then
  * programmatically invoke the wizard's Finish button that open up just created project.
