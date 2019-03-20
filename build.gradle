@@ -22,11 +22,28 @@ group 'io.nrwl.ide'
 version '1.0-SNAPSHOT'
 
 
+sourceSets {
+    main {
+        java {
+            srcDirs 'src'
+            srcDirs 'gen'
+        }
+        resources {
+            srcDirs 'resources'
+        }
+    }
+    test {
+        java {
+            srcDirs 'test'
+        }
+    }
+}
+
 intellij {
     version 'IU-2018.3.5'
     pluginName 'Angular Console'
     downloadSources false
-    updateSinceUntilBuild false
+    updateSinceUntilBuild true
     plugins = ['JavaScriptLanguage']
 }
 patchPluginXml {
@@ -42,4 +59,28 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+project.afterEvaluate {
+    buildPlugin.doLast {
+
+        def libraries = "$it.destinationDir/$intellij.pluginName/ngConsoleCli/"
+        print("Copy librays: $libraries" )
+        copy {
+            from "$project.projectDir/gen/ngConsoleCli"
+            into libraries
+
+        }
+    }
+
+    prepareSandbox.doLast {
+
+        def libraries = "$it.destinationDir/$intellij.pluginName/ngConsoleCli/"
+        print("Copy librays: $libraries" )
+        copy {
+            from "$project.projectDir/gen/ngConsoleCli"
+            into libraries
+
+        }
+    }
 }
