@@ -130,7 +130,8 @@ I broke down the things which needs to be done into these specific tasks (areas)
 a processHandler that can also listen for the console output in case we will need to parse some output and to communicate 
 with the angular console
 
-*  
+*  I moved start & stop functionality into the Project component as we dont really want to start the NG server if we area working
+with non-angular app. 
     
       
     
